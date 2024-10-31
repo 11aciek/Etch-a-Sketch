@@ -1,0 +1,19 @@
+body {
+  background-color: lightblue;
+}
+
+.container {
+  background-color: beige;
+  width: 900px;
+  height: 900px;
+  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  background-color: grey;
+  border: solid 1px black;
+  padding: 0px;
+  margin: 0px;
+}
