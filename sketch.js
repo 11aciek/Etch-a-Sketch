@@ -5,35 +5,27 @@ const newGrid = document.querySelector(".new-grid");
 const showGrid = document.querySelector(".show-grid");
 const randColor = document.querySelector(".color");
 const darkeningColor = document.querySelector(".darkening");
+const gridSize = document.querySelector(".size-slider");
 
 container.style.width = `${WIDTH}px`;
 container.style.height = `${HEIGHT}px`;
 
 let isSketching = false;
-let cellNumber = 16;
+let cellNumber = 45;
 let color = "rgb(67 67 243)";
 let isDarkening = false;
 
 container.addEventListener("mousedown", () => isSketching = true);
 container.addEventListener("mouseup", () => isSketching = false);
 
-newGrid.addEventListener("click", function() {
-  const newCellNumber = Number(prompt("Number of rows? (10-100)"));
-  if (isNaN(newCellNumber) || newCellNumber < 10 || newCellNumber > 100) {
-	alert("Number between 10 and 100 please!");
-	return;
-  } else {
-	cellNumber = newCellNumber;
-  }
- 
-  clearBoard();
-   makeGrid(cellNumber);
+gridSize.addEventListener("input", function() {
+  cellNumber = gridSize.value;
+  newGrid.innerText = `New Grid: ${cellNumber} x ${cellNumber}`;
+});
 
-  function clearBoard() {
-	let cells = document.querySelectorAll(".cell");
-	cells.forEach(c => container.removeChild(c));
-	cells = null;
-  }
+newGrid.addEventListener("click", function() {
+  document.querySelectorAll(".cell").forEach(c => container.removeChild(c));
+  makeGrid(cellNumber);
 }); 
 
 function makeGrid(cellNumber) {

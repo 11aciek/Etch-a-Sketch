@@ -9,6 +9,10 @@ body {
   margin: auto;
   margin-bottom: 10px;
 }
+.new-grid {
+  min-width: 120px;
+  text-align: center;
+}
 
 .color {
   color: grey;
@@ -35,6 +39,8 @@ body {
 }
 
 .active {
-  font-weight: 1000;
-  border: 2px solid black;
+  color: white;
+  box-sizing: border-box;
+  background-color: black;
+  border-radius: 2px;
 }
