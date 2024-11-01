@@ -3,7 +3,16 @@ body {
 }
 
 .menu {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.color {
+  color: grey;
+  background-color: rgb(67 67 243);
 }
 
 .container {
