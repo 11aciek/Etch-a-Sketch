@@ -2,6 +2,10 @@ body {
   background-color: lightblue;
 }
 
+.menu {
+  margin: 10px;
+}
+
 .container {
   background-color: beige;
   margin: auto;
@@ -11,7 +15,17 @@ body {
 }
 
 .cell {
+  box-sizing: border-box;
   background-color: grey;
   padding: 0px;
   margin: 0px;
+}
+
+.grid {
+  border: 1px solid black;
+}
+
+.active {
+  font-weight: 1000;
+  border: 2px solid black;
 }
