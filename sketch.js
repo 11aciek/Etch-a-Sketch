@@ -1,11 +1,11 @@
 const WIDTH = 900;
 const HEIGHT = 900;
 const container = document.querySelector(".container");
-const newGrid = document.querySelector(".new-grid");
-const showGrid = document.querySelector(".show-grid");
-const randColor = document.querySelector(".color");
-const darkeningColor = document.querySelector(".darkening");
-const gridSize = document.querySelector(".size-slider");
+const newGridButton = document.querySelector(".new-grid");
+const showGridButton = document.querySelector(".show-grid");
+const randColorButton = document.querySelector(".color");
+const darkeningColorButton = document.querySelector(".darkening");
+const gridSizeSlider = document.querySelector(".size-slider");
 
 container.style.width = `${WIDTH}px`;
 container.style.height = `${HEIGHT}px`;
@@ -18,12 +18,12 @@ let isDarkening = false;
 container.addEventListener("mousedown", () => isSketching = true);
 container.addEventListener("mouseup", () => isSketching = false);
 
-gridSize.addEventListener("input", function() {
-  cellNumber = gridSize.value;
-  newGrid.innerText = `New Grid: ${cellNumber} x ${cellNumber}`;
+gridSizeSlider.addEventListener("input", function() {
+  cellNumber = gridSizeSlider.value;
+  newGridButton.innerText = `New Grid: ${cellNumber} x ${cellNumber}`;
 });
 
-newGrid.addEventListener("click", function() {
+newGridButton.addEventListener("click", function() {
   document.querySelectorAll(".cell").forEach(c => container.removeChild(c));
   makeGrid(cellNumber);
 }); 
@@ -50,17 +50,17 @@ function makeGrid(cellNumber) {
 	});
   }
 
-  showGrid.classList.remove("active");
+  showGridButton.classList.remove("active");
 }
 
-showGrid.addEventListener("click", function() {
+showGridButton.addEventListener("click", function() {
   container.querySelectorAll(".cell").forEach(c => c.classList.toggle("grid"));
-  showGrid.classList.toggle("active");
+  showGridButton.classList.toggle("active");
 });
 
-randColor.addEventListener("click", function() {
+randColorButton.addEventListener("click", function() {
   color = changeColor();
-  randColor.style["background-color"] = color;
+  randColorButton.style["background-color"] = color;
   container.querySelectorAll(".cell").forEach(c => c.classList.remove("non-blank"));
   
   function changeColor() {
@@ -69,9 +69,9 @@ randColor.addEventListener("click", function() {
   }
 });
 
-darkeningColor.addEventListener("click", function() {
+darkeningColorButton.addEventListener("click", function() {
   isDarkening = isDarkening ? false : true;
-  darkeningColor.classList.toggle("active");
+  darkeningColorButton.classList.toggle("active");
   container.querySelectorAll(".cell").forEach(c => c.classList.remove("non-blank"));
 });
 
